@@ -19,8 +19,8 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="https://www.instagram.com/arielreidoblindado/">
+        Barbearia2.0
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
