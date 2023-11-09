@@ -4,12 +4,15 @@ import TelaDeLogin from './views/LoginPage.js';
 import NavBAr from './components/NavBar.js';
 import Card from './components/Card.js'
 import Grid from '@mui/material/Grid'
+import Tabela from './views/BarbeariasPage.js'
+import Page from './components/desktop-page.js'
+import Page2 from './components/desktop-begin-page.js'
 
 
 function App() {
   return (
     <>
-    <TelaDeLogin/>
+    <Tabela/>
     </>
   );
 }
