@@ -7,12 +7,14 @@ import Grid from '@mui/material/Grid'
 import Tabela from './views/BarbeariasPage.js'
 import Page from './components/desktop-page.js'
 import Page2 from './components/desktop-begin-page.js'
+import PerfilPage from './views/PerfilPage.js'
+import AgPage from './views/AgendamentoPage.js'
 
 
 function App() {
   return (
     <>
-    <Tabela/>
+    <AgPage/>
     </>
   );
 }

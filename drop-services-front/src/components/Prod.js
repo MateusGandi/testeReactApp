@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
+import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -13,26 +14,15 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline as MuiCssBaseline } from '@mui/material';
 import { dark } from '@mui/material/styles';
-import Card from '../components/Card.js';
 import Ad from '../components/Ad.js';
+import Stack from '@mui/material/Stack';
+import { CardActionArea } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import AD from '../components/Ad.js'
+import Products from '../components/Prod.js'
 
-
-function App() {
-    const customStyle = {
-        html:{
-            fontFamily: 'roboto',
-            backgroundColor: "#000",
-        }
-    }
-    // const darkTheme = createTheme({
-    //   palette: {
-    //     mode: 'dark', // Definir o modo do tema como 'dark'
-    //   },
-    // });
-    return(
-        <>
-        <Card></Card>
-        </>
-    )
+function Produtos() {
+    <div>oi</div>
 }
-export default App;
+
+export default Produtos;

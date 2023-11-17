@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import image from '../images/mock-app.png';
+import AD from '../components/Ad.js'
 
 import Stack from '@mui/material/Stack';
 
@@ -52,7 +53,14 @@ const customStyle = {
 
 export default function ActionAreaCard() {
   return (
-    <Stack style={customStyle.html} spacing={2} alignItems={"center"}>
+    <Stack margin={"10px 0"} spacing={1} alignItems={"center"}>
+       <Grid item>
+          <Card sx={{ width: 345 }} variant="outlined">
+            <CardActionArea style={{padding:'10px',textAlign:'center'}}>
+              Escolha a barbearia mais próxima a você
+            </CardActionArea>
+          </Card>
+        </Grid>
       {barbearias.map((barbearia, index) => (
         <Grid item key={index} xs={12} sm={6} md={4}>
           <Card sx={{ width: 345 }} variant="outlined">
@@ -79,6 +87,7 @@ export default function ActionAreaCard() {
           </Card>
         </Grid>
       ))}
+      <AD/>
     </Stack>
   );
 }
