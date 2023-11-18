@@ -9,6 +9,7 @@ import Page from './components/desktop-page.js'
 import Page2 from './components/desktop-begin-page.js'
 import PerfilPage from './views/PerfilPage.js'
 import AgPage from './views/AgendamentoPage.js'
+import AgPageCliente from './views/AgendamentoPage.js'
 
 
 function App() {
