@@ -1,36 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
-import TelaDeLogin from './views/LoginPage.js';
-import NavBAr from './components/NavBar.js';
-import Card from './components/Card.js'
-import Grid from '@mui/material/Grid'
-import Tabela from './views/BarbeariasPage.js'
-import Page from './components/desktop-page.js'
-import Page2 from './components/desktop-begin-page.js'
-import PerfilPage from './views/PerfilPage.js'
-import AgPage from './views/AgendamentoPage.js'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link  } from 'react-router-dom';
+import LoginPage from './views/LoginPage.js';
+import NavBar from './components/NavBar.js';
+import BarbeariasPage from './views/BarbeariasPage.js';
+import DesktopPage from './components/desktop-page.js';
+import DesktopBeginPage from './components/desktop-begin-page.js';
+import PerfilPage from './views/PerfilPage.js';
+import AgendamentoPage from './views/AgendamentoPage.js';
+import { useHistory } from 'react-router-dom';
 
-
-function App() {
+const App = () => {
   return (
-    <>
-    <AgPage/>
-    </>
+    <Router>
+      <>
+      <nav>
+          <ul>
+            <li>
+              <Link to="/login">About</Link>
+            </li>
+            <li>
+              <Link to="/perfil">Contact</Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* Rotas */}
+        <Routes>
+          {/* Rota para a página de login */}
+          <Route path="/login" element={<LoginPage />} />
+
+          {/* Rota para a página de barbearias */}
+          <Route path="/barbearias" element={<BarbeariasPage />} />
+
+          {/* Rota para a página do perfil */}
+          <Route path="/perfil" element={<PerfilPage />} />
+
+          {/* Rota para a página de agendamento */}
+          <Route path="/agendamento" element={<AgendamentoPage />} />
+
+          {/* Página inicial (caso nenhuma rota corresponda) */}
+          <Route path="/" element={<DesktopBeginPage />} />
+
+          {/* Página padrão para rotas não correspondentes */}
+          <Route path="*" element={<DesktopPage />} />
+        </Routes>
+      </>
+    </Router>
   );
-}
-/*
-Aqui podem ser renderizados as telas, conforme as rotas
-const routes = [{
-  path: '/login',
-    name: 'Login',
-    component: LoginPage,
-    layout: '/auth',
-},...] 
-    
-          <Switch>
-            <Route path="/auth" component={AuthLayout} />
-            <Route path="/admin" component={AdminLayout} />
-            <Redirect from="*" to="/auth" />
-          </Switch>
-*/
+};
+
 export default App;

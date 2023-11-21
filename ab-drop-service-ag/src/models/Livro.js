@@ -6,7 +6,6 @@ const livroSchema = new mongoose.Schema({
     editora:{type: String},
     preco:{type: Number}
 },{versionKey: false})
-//objeto de configuração estrutura e propriedade de um livro
 
 const livro = mongoose.model("livros",livroSchema);
 
