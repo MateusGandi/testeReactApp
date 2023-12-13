@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import img1 from '../images/barber-banner-fx.png'
+import cardBarbearia from './cardBarbearia.js'
 
 
 const customStyle = {

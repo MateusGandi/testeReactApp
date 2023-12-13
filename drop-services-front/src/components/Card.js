@@ -5,8 +5,8 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import image from '../images/mock-app.png';
 import AD from '../components/Ad.js'
-
 import Stack from '@mui/material/Stack';
+import CardBarbearia from './CardBarbearia.js'
 
 const barbearias = [
   {
