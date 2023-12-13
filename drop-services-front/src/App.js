@@ -7,18 +7,18 @@ import React from "react";
 // import DesktopBeginPage from "./components/desktop-begin-page.js";
 // import PerfilPage from "./views/PerfilPage.js";
 import Drawer from "./components/drawer.js";
+import Teste from "./components/teste.js";
 // import AgendamentoPage from "./views/AgendamentoPage.js";
 // import { useHistory } from "react-router-dom";
 //import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const App = () => {
-  
   return (
-      //<Router>
-        <>
-        <Drawer></Drawer>
-        </>
-      //</Router>
+    //<Router>
+    <>
+      <Drawer></Drawer>
+    </>
+    //</Router>
   );
 };
 

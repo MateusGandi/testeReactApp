@@ -1,69 +1,129 @@
-import React, { useState } from 'react';
-import Draggable from 'react-draggable';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import Draggable from "react-draggable";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import { grey } from "@mui/material/colors";
+import { styled } from "@mui/material/styles";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
 
-const PullableMenu = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const TransparentDrawer = styled(Drawer)(({ theme }) => ({
+  "& .MuiPaper-root": {
+    backgroundColor: "rgba(0, 0, 0, 0.5)", // Ajuste a opacidade conforme necessário
+    backdropFilter: "blur(5px)", // Adicione isso para aplicar um efeito de desfoque
+  },
+}));
 
-  const handleDrag = (e, ui) => {
-    // Adicione lógica personalizada conforme necessário durante o arrasto
-    console.log(ui.deltaX, ui.deltaY);
-  };
+export default function TemporaryDrawer() {
+  const [state, setState] = React.useState({ top: false });
 
-  const handleStop = (e, ui) => {
-    // Quando o arrasto parar, verifique a posição do menu
-    const { y } = ui;
-
-    if (y >= 0) {
-      // Se a posição Y for maior ou igual a 0, expanda o menu
-      setIsExpanded(true);
-    } else {
-      // Se a posição Y for menor que 0, recolha o menu
-      setIsExpanded(false);
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
     }
+
+    setState({ ...state, [anchor]: open });
   };
 
-  const containerStyles = {
-    width: '100%',
-    position: 'fixed',
-    top: isExpanded ? '0' : '-50px',
-    left: 0,
-    transition: 'top 0.3s ease', // Adicione uma transição suave à mudança de altura
-  };
+  const Puller = styled(Box)(({ theme }) => ({
+    height: 8,
+    backgroundColor: theme.palette.mode === "light" ? grey[300] : grey[900],
+    borderRadius: 50,
+    maxWidth: "250px",
+    width: "100%",
+  }));
 
-  const contentStyles = {
-    border: '1px solid black',
-  };
-
-  const handleStyles = {
-    backgroundColor: 'red',
-    width: '100%',
-    height: '50px',
-    top: isExpanded ? '-50px' : '0', // Posição top negativa para esconder a div handle
-  };
-
-  return (
+  const list = (anchor) => (
     <Draggable
       axis="y"
-      handle=".handle"
-      onDrag={handleDrag}
-      onStop={handleStop}
-      bounds={{ top: -50, bottom: 0 }} // Defina os limites superiores e inferiores
+      handle=".handles"
+      bounds={{ top: -110, bottom: 0 }}
+      onDrag={toggleDrawer("top", false)}
+      onClick={toggleDrawer("top", false)}
     >
-      <div style={containerStyles}>
-        <div className="content" style={contentStyles}>
-          {/* Conteúdo do menu */}
-          <div style={contentStyles}>Conteúdo do menu</div>
-          <div style={contentStyles}>Conteúdo do menu</div>
-          <div style={contentStyles}>Conteúdo do menu</div>
-          <div style={contentStyles}>Conteúdo do menu</div>
-          <div style={contentStyles}>Conteúdo do menu</div>
+      <Box
+        sx={{
+          width: anchor === "top" ? "auto" : 250,
+          marginTop: "-8px",
+        }}
+        role="presentation"
+        onClick={toggleDrawer(anchor, false)}
+        onKeyDown={toggleDrawer(anchor, false)}
+      >
+        <List>
+          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+            <React.Fragment key={text}>
+              <ListItem disablePadding>
+                <ListItemButton
+                  style={{ textAlign: "center", backgroundColor: grey[800] }}
+                >
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </ListItem>
+              {<Divider />}
+            </React.Fragment>
+          ))}
+        </List>
+        <div
+          className="handles"
+          style={{
+            marginTop: "-8px",
+            padding: "10px",
+            height: "20px",
+            backgroundColor: grey[800],
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "center",
+            borderRadius: " 0 0 10px 10px",
+          }}
+        >
+          <Puller />
         </div>
-        <div className="handle" style={handleStyles}>
-          Arraste-me para baixo
-        </div>
-      </div>
+      </Box>
     </Draggable>
   );
-};
 
-export default PullableMenu;
+  return (
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <React.Fragment key={"top"}>
+        <Draggable
+          axis="y"
+          handle=".handle"
+          bounds={{ top: -110, bottom: 0 }}
+          onDrag={toggleDrawer("top", true)}
+          onClick={toggleDrawer("top", true)}
+        >
+          <div
+            className="handle"
+            style={{
+              width: "100%",
+              padding: "10px",
+              height: "20px",
+              backgroundColor: grey[800],
+              display: "flex",
+              alignItems: "flex-end",
+              justifyContent: "center",
+              borderRadius: " 0 0 10px 10px",
+            }}
+          >
+            <Puller />
+          </div>
+        </Draggable>
+
+        <TransparentDrawer
+          anchor={"top"}
+          open={state["top"]}
+          onClose={toggleDrawer("top", false)}
+        >
+          {list("top")}
+        </TransparentDrawer>
+      </React.Fragment>
+    </div>
+  );
+}
