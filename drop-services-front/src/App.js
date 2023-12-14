@@ -13,13 +13,27 @@ import { Card } from "@mui/material";
 // import AgendamentoPage from "./views/AgendamentoPage.js";
 // import { useHistory } from "react-router-dom";
 //import { createTheme, ThemeProvider } from "@mui/material/styles";
+import BarbeariasPage from "./views/BarbeariasPage.js";
 
 const App = () => {
   return (
     //<Router>
     <>
-      <Drawer></Drawer>
-       <CardBarbearia nomeBarbearia='Juraides' status={true} localizacao='Rua das Palmeiras'></CardBarbearia> 
+      <BarbeariasPage></BarbeariasPage>
+       {/* <CardBarbearia nomeBarbearia='Juraides' status={true} localizacao='Rua das Palmeiras'></CardBarbearia> 
+       <CardBarbearia nomeBarbearia='Batata' status={false} localizacao='almeiras'></CardBarbearia> 
+       <CardBarbearia nomeBarbearia='Batata' status={false} localizacao='almeiras'></CardBarbearia> 
+       <CardBarbearia nomeBarbearia='Batata' status={false} localizacao='almeiras'></CardBarbearia> 
+       <CardBarbearia nomeBarbearia='Batata' status={false} localizacao='almeiras'></CardBarbearia> 
+       <CardBarbearia nomeBarbearia='Batata' status={false} localizacao='almeiras'></CardBarbearia> 
+       <CardBarbearia nomeBarbearia='Batata' status={false} localizacao='almeiras'></CardBarbearia> 
+       <CardBarbearia nomeBarbearia='Batata' status={false} localizacao='almeiras'></CardBarbearia> 
+       <CardBarbearia nomeBarbearia='Batata' status={false} localizacao='almeiras'></CardBarbearia> 
+       <CardBarbearia nomeBarbearia='Batata' status={false} localizacao='almeiras'></CardBarbearia> 
+       <CardBarbearia nomeBarbearia='Batata' status={false} localizacao='almeiras'></CardBarbearia> 
+       <CardBarbearia nomeBarbearia='Batata' status={false} localizacao='almeiras'></CardBarbearia> 
+       <CardBarbearia nomeBarbearia='Batata' status={false} localizacao='almeiras'></CardBarbearia> 
+       <CardBarbearia nomeBarbearia='MOrte' status={true} localizacao='Rua das Lixeiras'></CardBarbearia>  */}
     </>
     //</Router>
   );

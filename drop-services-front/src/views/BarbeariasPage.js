@@ -15,6 +15,7 @@ import { CssBaseline as MuiCssBaseline } from "@mui/material";
 import { dark } from "@mui/material/styles";
 import Card from "../components/Card.js";
 import Ad from "../components/Ad.js";
+import Drawer from "../components/drawer.js";
 
 function App() {
   const customStyle = {
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <>
+    <Drawer></Drawer>
       <Card/>
     </>
   );

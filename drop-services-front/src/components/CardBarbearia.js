@@ -28,7 +28,7 @@ const customStyle = {
 export default function CardBarbearia(props) {
 
 return(
-    <Grid xs={12} sm={6} md={4}>
+    <Grid xs={12} sm={6} md={4} spacing={12} style={{display: 'flex', justifyContent: 'center'}} paddingBottom='7px'>
     <Card sx={{ width: 345 }} variant="outlined">
       <CardActionArea style={customStyle.Main}>
         <img
