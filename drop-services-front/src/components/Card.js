@@ -62,30 +62,7 @@ export default function ActionAreaCard() {
           </Card>
         </Grid>
       {barbearias.map((barbearia, index) => (
-        <Grid item key={index} xs={12} sm={6} md={4}>
-          <Card sx={{ width: 345 }} variant="outlined">
-            <CardActionArea style={customStyle.Main}>
-              <img
-                src={require(`../images/${barbearia.logo}`)}
-                style={customStyle.Images}
-                alt={barbearia.nome}
-              />
-              <Grid container style={customStyle.List}>
-                <Grid item xs={12}>
-                  <Typography variant='h6'>{barbearia.nome}</Typography>
-                </Grid>
-                <Grid item style={customStyle.Item} xs={12}>
-                  <Typography variant='p5'>{barbearia.localizacao}</Typography>
-                </Grid>
-                <Grid item xs={12}>
-                  <Typography variant='p6'>
-                    {barbearia.status ? "Vagas disponíveis agora!" : "Fechado por hoje..."}
-                  </Typography>
-                </Grid>
-              </Grid>
-            </CardActionArea>
-          </Card>
-        </Grid>
+        <CardBarbearia nomeBarbearia={barbearia.nome} status={barbearia.status} localizacao={barbearia.localizacao}></CardBarbearia>
       ))}
       <AD/>
     </Stack>

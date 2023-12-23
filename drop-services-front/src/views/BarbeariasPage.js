@@ -16,6 +16,7 @@ import { dark } from "@mui/material/styles";
 import Card from "../components/Card.js";
 import Ad from "../components/Ad.js";
 import Drawer from "../components/drawer.js";
+import CardBarbearia from "../components/CardBarbearia.js";
 
 function App() {
   const customStyle = {
@@ -34,7 +35,8 @@ function App() {
   return (
     <>
     <Drawer></Drawer>
-      <Card/>
+    <Card></Card>
+    <CardBarbearia nomeBarbearia='Batata' status={false} localizacao='almeiras'></CardBarbearia>
     </>
   );
 }
